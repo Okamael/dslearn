@@ -26,7 +26,7 @@ public class Enrollment implements Serializable{
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant enrollMoment;
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant refoundMoment;
+	private Instant refund_Moment;
 	private boolean available;
 	private boolean onlyUpdate;
 	
@@ -40,7 +40,7 @@ public class Enrollment implements Serializable{
 		this.id.setUser(user);
 		this.id.setOffer(offer);
 		this.enrollMoment = enrollMoment;
-		this.refoundMoment = refoundMoment;
+		this.refund_Moment = refoundMoment;
 		this.available = available;
 		this.onlyUpdate = onlyUpdate;
 	}
@@ -71,11 +71,11 @@ public class Enrollment implements Serializable{
 	}
 
 	public Instant getRefoundMoment() {
-		return refoundMoment;
+		return refund_Moment;
 	}
 
 	public void setRefoundMoment(Instant refoundMoment) {
-		this.refoundMoment = refoundMoment;
+		this.refund_Moment = refoundMoment;
 	}
 
 	public boolean isAvailable() {

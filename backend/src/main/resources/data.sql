@@ -25,3 +25,6 @@ INSERT INTO tb_resource(title, description, position,img_Uri,type, offer_id ) VA
 INSERT INTO tb_section(title, description, position,img_Uri, resouce_id , prequisite_id ) VALUES ('Capitulo 1', 'Começando', 1,'https://get.pxhere.com/photo/training-course-training', 1,null);
 INSERT INTO tb_section(title, description, position,img_Uri, resouce_id , prequisite_id ) VALUES ('Capitulo 2', 'Continuar', 2,'https://get.pxhere.com/photo/training-course-training', 1,1);
 INSERT INTO tb_section(title, description, position,img_Uri, resouce_id , prequisite_id ) VALUES ('Capitulo 3', 'terminar', 3,'https://get.pxhere.com/photo/training-course-training', 1,2);
+
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update ) VALUES (1,1,TIMESTAMP WITH TIME ZONE '2022-07-13T13:00:00.12345Z', null, true,false);
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES  (2,1,TIMESTAMP WITH TIME ZONE '2022-07-13T13:00:00.12345Z', null, true,false);
