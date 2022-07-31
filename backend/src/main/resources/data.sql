@@ -21,3 +21,7 @@ INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0
 INSERT INTO tb_resource(title, description, position,img_Uri,type, offer_id ) VALUES ('TRILHA HTML', 'trilha principal do curso', 1,'https://get.pxhere.com/photo/training-course-training', 1,1);
 INSERT INTO tb_resource(title, description, position,img_Uri,type, offer_id ) VALUES ('Forum', 'Tire suas duvidas', 2,'https://get.pxhere.com/photo/training-course-training', 2,1);
 INSERT INTO tb_resource(title, description, position,img_Uri,type, offer_id ) VALUES ('Lives', 'Lives exclusivas para a turma', 3,'https://get.pxhere.com/photo/training-course-training', 0 ,1);
+
+INSERT INTO tb_section(title, description, position,img_Uri, resouce_id , prequisite_id ) VALUES ('Capitulo 1', 'Começando', 1,'https://get.pxhere.com/photo/training-course-training', 1,null);
+INSERT INTO tb_section(title, description, position,img_Uri, resouce_id , prequisite_id ) VALUES ('Capitulo 2', 'Continuar', 2,'https://get.pxhere.com/photo/training-course-training', 1,1);
+INSERT INTO tb_section(title, description, position,img_Uri, resouce_id , prequisite_id ) VALUES ('Capitulo 3', 'terminar', 3,'https://get.pxhere.com/photo/training-course-training', 1,2);
