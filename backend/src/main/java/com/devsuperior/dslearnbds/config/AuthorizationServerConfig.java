@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -45,6 +46,9 @@ public class AuthorizationServerConfig extends  AuthorizationServerConfigurerAda
 	@Autowired
 	private JwTokenEnchancer tokenEnhancer;
 	
+	@Autowired
+	private UserDetailsService userDetailService;
+	
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
@@ -56,8 +60,10 @@ public class AuthorizationServerConfig extends  AuthorizationServerConfigurerAda
 		.withClient(clientId)
 		.secret(passwordEncoder.encode(clientSecret))
 		.scopes("read","write")
-		.authorizedGrantTypes("password")
-		.accessTokenValiditySeconds(jwtDuration);
+		.authorizedGrantTypes("password", "refresh_token")
+		.accessTokenValiditySeconds(jwtDuration)
+		.refreshTokenValiditySeconds(jwtDuration);
+		
 	}
 
 	@Override
@@ -68,7 +74,8 @@ public class AuthorizationServerConfig extends  AuthorizationServerConfigurerAda
 		endpoints.authenticationManager(authenticationManager)
 		.tokenStore(tokensStore)
 		.accessTokenConverter(accesTokenConverter)
-		.tokenEnhancer(chain);
+		.tokenEnhancer(chain)
+		.userDetailsService(userDetailService);
 		
 	}
 	
